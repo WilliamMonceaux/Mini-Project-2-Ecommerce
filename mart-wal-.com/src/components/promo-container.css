@@ -1,3 +1,11 @@
+.test > strong {
+    font-size: 3rem;
+}
+
+.promo-header {
+    margin: 3rem;
+}
+
 .flex-container {
     display: flex;
     justify-content: center;
