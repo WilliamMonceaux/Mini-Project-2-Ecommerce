@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import './global.css';
+import '../components/NavBar.css';
 
  function NavBar() {
     return(<nav className='navbar component-box'>
@@ -10,6 +10,6 @@ import './global.css';
             <li><Link to ='/about'>About</Link></li>
         </ul>
     </nav>);
-}
+ }
 
 export { NavBar };
