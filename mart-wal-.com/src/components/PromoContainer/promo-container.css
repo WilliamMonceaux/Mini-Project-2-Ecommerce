@@ -1,0 +1,22 @@
+.promo-header > strong {
+    font-size: 3rem;
+}
+
+.promo-header {
+    margin: 3rem;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    background-color:  #2141FF;
+}
+
+.promo-container {
+    background-color: white;
+    border: double black 7px;
+    margin: 3rem;
+    width: 70%;
+    text-align: center;
+}
