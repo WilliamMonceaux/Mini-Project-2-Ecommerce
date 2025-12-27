@@ -8,22 +8,22 @@ html {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-header {
-    padding: 3rem;
-    background-image: linear-gradient(to right, #00B0FF, #00B0FF);
-}
-
 h1 {
     font-size: 4rem;
     font-family: "Montserrat", sans-serif;
     text-align: center;
     margin-bottom: 2rem;
-    color: #000080;
+    color: black;
 }
 
 header > p {
     text-align: center;
     font-size: 3rem;
-    color: #000080;
+    color: black;
 
+}
+
+.page-header {
+    padding: 3rem;
+    background-image: linear-gradient(to right, #00B0FF, #005DB5);
 }
