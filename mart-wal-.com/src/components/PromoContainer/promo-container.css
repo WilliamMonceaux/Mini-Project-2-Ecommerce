@@ -1,4 +1,4 @@
-.promo-header > strong {
+h2 {
     font-size: 3rem;
 }
 
@@ -10,7 +10,7 @@
     display: flex;
     justify-content: center;
     height: 100vh;
-    background-image: linear-gradient(to right, #00B0FF, #00B0FF);
+    background-image: linear-gradient(to right, #00B0FF, #005DB5);
 }
 
 .promo-container {
