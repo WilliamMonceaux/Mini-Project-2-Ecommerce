@@ -10,7 +10,7 @@ html {
 
 header {
     padding: 3rem;
-    background-color: #2141FF;
+    background-image: linear-gradient(to right, #00B0FF, #00B0FF);
 }
 
 h1 {
@@ -18,12 +18,12 @@ h1 {
     font-family: "Montserrat", sans-serif;
     text-align: center;
     margin-bottom: 2rem;
-    color: white;
+    color: #000080;
 }
 
 header > p {
     text-align: center;
     font-size: 3rem;
-    color: white;
+    color: #000080;
 
 }
