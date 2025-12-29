@@ -1,7 +1,7 @@
-const express = require('exress');
+const express = require('express');
 const router = express.Router();
-const { products } = require('../controllers/productController');
+const { productList } = require('../controllers/productController');
 
-router.get('/products', products )
+router.get('/products', productList )
 
 module.exports = router;
