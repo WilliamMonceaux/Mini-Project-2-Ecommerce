@@ -2,15 +2,13 @@ import "./promo-container.css";
 
 function PromoContainer() {
   return (
-    <div className="flex-container">
+    <section className="flex-container">
       <div className="promo-container">
-        <div className='promo-header'>
-        <strong>
-            Featured Products:
-        </strong>
-        </div>
+        <header className="promo-header">
+          <h2> Featured Products: </h2>
+        </header>
       </div>
-    </div>
+    </section>
   );
 }
 
