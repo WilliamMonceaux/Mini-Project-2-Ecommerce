@@ -10,4 +10,14 @@ export default defineConfig({
       },
     }),
   ],
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://fakestoreapi.com',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/shop/, ''),
+      },
+    },
+    loglevel: 'debug',
+  },
 })
