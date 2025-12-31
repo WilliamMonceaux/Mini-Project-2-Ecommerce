@@ -13,7 +13,7 @@ h2 {
 }
 
 .promo-container {
-    background-color: white;
+    background-image: radial-gradient(white, grey);
     border: double black 7px;
     margin: 3rem;
     width: 100%;
