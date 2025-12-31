@@ -5,15 +5,17 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
+import { PromoContainer } from '../PromoContainer/PromoContainer.jsx';
 
 function CardsTemplate({ products }) {
   return (
     <main className="card-container">
+      <PromoContainer>
       <Grid container spacing={2}>
         {products.map((product) => {
           return (
           <Grid item key={product.id} size={{ xs: 12, md: 6, lg: 3 }}>
-            <Card sx={{ maxWidth: 300 }}>
+            <Card sx={{ maxWidth: 300,border: 2, boxShadow: 4, padding: 1 }}>
               <CardMedia
                 component="img"
                 image={product.image}
@@ -39,6 +41,7 @@ function CardsTemplate({ products }) {
           );
         })}
       </Grid>
+      </PromoContainer>
     </main>
   );
 }
