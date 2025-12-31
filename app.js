@@ -9,6 +9,6 @@ app.get('/', (req, res) => {
     res.send('Mini-Project 2 Backend Server')
 });
 
-app.use('api/shop', productRoutes );
+app.use('/api/shop', productRoutes );
 
 module.exports = { app };
