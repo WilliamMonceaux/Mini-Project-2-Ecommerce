@@ -9,13 +9,14 @@ h2 {
 .flex-container {
     display: flex;
     justify-content: center;
-    height: 100vh;
+    height: auto;
 }
 
 .promo-container {
     background-color: white;
     border: double black 7px;
     margin: 3rem;
-    width: 70%;
+    width: 100%;
     text-align: center;
+    padding: 3rem;
 }
