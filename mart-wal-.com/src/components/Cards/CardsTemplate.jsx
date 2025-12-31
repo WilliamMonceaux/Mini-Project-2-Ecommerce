@@ -5,39 +5,61 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
-import { PromoContainer } from '../PromoContainer/PromoContainer.jsx';
+import { PromoContainer } from "../PromoContainer/PromoContainer.jsx";
 
 function CardsTemplate({ products }) {
   return (
     <main className="card-container">
       <PromoContainer>
-      <Grid container spacing={2}>
-        {products.map((product) => {
-          return (
-          <Grid item key={product.id} size={{ xs: 12, md: 6, lg: 3 }}>
-            <Card sx={{ maxWidth: 300,border: 2, boxShadow: 4, padding: 1 }}>
-              <CardMedia
-                component="img"
-                image={product.image}
-                alt={product.title}
-                sx={{ height: 400, objectFit: 'contain' }}
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  {product.title}
-                </Typography>
-                <Typography variant="h6" sx={{ color: "success.main", mt: 1 }}>
-                  ${product.price.toFixed(2)}
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Button size='medium' sx={{bgcolor: 'black', color: 'white'}}>Add to Card</Button>
-              </CardActions>
-            </Card>
-          </Grid>
-          );
-        })}
-      </Grid>
+        <Grid container spacing={2}>
+          {products.map((product) => {
+            return (
+              <Grid
+                item
+                key={product.id}
+                size={{ xs: 12, md: 6, lg: 3 }}
+                display="flex"
+                justifyContent="center"
+              >
+                <Card
+                  sx={{
+                    width: 300,
+                    maxWidth: "100%",
+                    border: 2,
+                    boxShadow: 4,
+                    padding: 1,
+                  }}
+                >
+                  <CardMedia
+                    component="img"
+                    image={product.image}
+                    alt={product.title}
+                    sx={{ height: 200, objectFit: "contain" }}
+                  />
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="div">
+                      {product.title}
+                    </Typography>
+                    <Typography
+                      variant="h5"
+                      sx={{ color: "success.main", mt: 1 }}
+                    >
+                      ${product.price.toFixed(2)}
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button
+                      size="medium"
+                      sx={{ bgcolor: "black", color: "white" }}
+                    >
+                      Add to Card
+                    </Button>
+                  </CardActions>
+                </Card>
+              </Grid>
+            );
+          })}
+        </Grid>
       </PromoContainer>
     </main>
   );
