@@ -20,21 +20,18 @@ function CardsTemplate({ products }) {
                 component="img"
                 image={product.image}
                 alt={product.title}
-                height="300"
+                sx={{ height: 400, objectFit: 'contain' }}
               />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
                   {product.title}
                 </Typography>
-                <Typography variant="body2" sx={{ color: "text.secondary" }}>
-                  {product.description}
-                </Typography>
-                <Typography variant="body2" sx={{ color: "text.primary" }}>
-                  {product.price}
+                <Typography variant="h6" sx={{ color: "success.main", mt: 1 }}>
+                  ${product.price.toFixed(2)}
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button size="small">Add to Card</Button>
+                <Button size='medium' sx={{bgcolor: 'black', color: 'white'}}>Add to Card</Button>
               </CardActions>
             </Card>
           </Grid>
