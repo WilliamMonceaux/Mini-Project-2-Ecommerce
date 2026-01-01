@@ -7,6 +7,7 @@ import './NavBar.css';
             <li><NavLink to ='/'>Home</NavLink></li>
             <li><NavLink to ='/shop'>Shop</NavLink></li>
             <li><NavLink to ='/cart'>Cart</NavLink></li>
+            <li><NavLink to ='/sign-up'>Signup</NavLink></li>
             <li><NavLink to ='/about'>About</NavLink></li>
         </ul>
     </nav>);
