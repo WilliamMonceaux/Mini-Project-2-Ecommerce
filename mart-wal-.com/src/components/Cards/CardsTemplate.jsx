@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -6,13 +7,22 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import { PromoContainer } from "../PromoContainer/PromoContainer.jsx";
+import { FilterBar } from '../FilterBar/FilterBar.jsx';
 
 function CardsTemplate({ products }) {
+
+  const [displayProducts, setDisplayProducts] = useState(products);
+
+  useEffect(() => {
+    setDisplayProducts(products);
+  }, [products]);
+
   return (
     <main className="card-container">
       <PromoContainer>
-        <Grid container spacing={2}>
-          {products.map((product) => {
+        <FilterBar products={products} onFilterChange={setDisplayProducts} />
+        <Grid container spacing={3}>
+          {displayProducts.map((product) => {
             return (
               <Grid
                 item
