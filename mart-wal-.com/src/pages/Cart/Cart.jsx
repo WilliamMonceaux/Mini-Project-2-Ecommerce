@@ -48,7 +48,7 @@ function Cart() {
                     >
                       ${product.price.toFixed(2)}
                     </Typography>
-                    <Typography variant='h6' component='div'>
+                    <Typography variant='body1' component='div'>
                       {product.description}
                     </Typography>
                   </CardContent>
