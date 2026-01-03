@@ -3,11 +3,13 @@ import { Home } from './pages/Home/Home.jsx';
 import { Shop } from './pages/Shop/Shop.jsx';
 import { Cart } from './pages/Cart/Cart.jsx';
 import { About } from './pages/About/About.jsx';
+import {AddItemsToCart } from './Context/CartContext.jsx';
 import SignUp from './pages/Sign-up/SignUp.jsx';
 
 
 function App() {
   return (
+    <AddItemsToCart>
     <Routes>
       <Route path='/' element={<Home />} />
       <Route path='/Shop' element={<Shop />} />
@@ -15,6 +17,7 @@ function App() {
       <Route path='/Sign-up' element={<SignUp />} />
       <Route path='/About' element={<About />} />
     </Routes>
+    </AddItemsToCart>
   );
 }
 
