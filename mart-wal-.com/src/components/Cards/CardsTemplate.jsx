@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -6,12 +6,15 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
+import { CartContext } from '../../Context/CartContext.jsx';
 import { PromoContainer } from "../PromoContainer/PromoContainer.jsx";
 import { FilterBar } from '../FilterBar/FilterBar.jsx';
 
 function CardsTemplate({ products }) {
 
   const [displayProducts, setDisplayProducts] = useState(products);
+
+    const { handleAddToCart } = useContext(CartContext);
 
   useEffect(() => {
     setDisplayProducts(products);
@@ -55,6 +58,9 @@ function CardsTemplate({ products }) {
                       sx={{ color: "success.main", mt: 1 }}
                     >
                       ${product.price.toFixed(2)}
+                    </Typography>
+                    <Typography variant='h6' component='div'>
+                      {product.description}
                     </Typography>
                   </CardContent>
                   <CardActions>
