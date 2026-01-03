@@ -67,6 +67,10 @@ function CardsTemplate({ products }) {
                     <Button
                       size="medium"
                       sx={{ bgcolor: "black", color: "white" }}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleAddToCart(product);
+                      }}
                     >
                       Add to Card
                     </Button>
