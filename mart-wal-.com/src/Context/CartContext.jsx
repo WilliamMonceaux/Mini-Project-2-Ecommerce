@@ -9,8 +9,14 @@ function AddItemsToCart(props) {
         setAddCart([...addCart, product]);
     }
 
+    const removeProduct = (id) => {
+        setAddCart((cart) => {
+            return cart.filter((product) => product.id !== id)
+        })
+    }
+
     return(
-        <CartContext.Provider value= {{addCart, handleAddToCart }}>
+        <CartContext.Provider value= {{addCart, handleAddToCart, removeProduct }}>
             {props.children}
         </CartContext.Provider>
     );
