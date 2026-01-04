@@ -1,19 +1,25 @@
-import { useUserContext } from '../../Context/UserContext';
-import { useNavigate } from 'react-router-dom';
+import { useUserContext } from "../../Context/UserContext";
+import "./logout-btn.css";
 
 function LogoutBtn() {
-    const { handleUpdateUser } = useUserContext();
-    const navigate = useNavigate();
+  const { currentUser, handleUpdateUser } = useUserContext();
 
-    const handleLogout = () => {
-        handleUpdateUser(null);
-    };
+  const handleLogout = () => {
+    handleUpdateUser(null);
+  };
 
-    return (
-        <button onClick={handleLogout} className="logout-button">
-            Logout
-        </button>
-    );
+  if (!currentUser || !currentUser.name) {
+    return null;
+  } 
+
+  return (
+    <div className="positioning">
+      <span className="username-welcome"> Welcome, {currentUser.name}</span>
+      <button onClick={handleLogout} className="logout-button">
+        Logout
+      </button>
+    </div>
+  );
 }
 
 export { LogoutBtn };
