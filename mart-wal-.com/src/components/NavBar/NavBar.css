@@ -35,13 +35,29 @@ nav {
   transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
 }
 
-li a:hover {
-  background-color: white;
-  color: black;
+li a:not(.active):hover {
+  color: white;
+  text-shadow: 2px 2px 5px white;
 }
 
 li a.active {
-  background-color:#B5B1B1;
+  background-color:#007AFF;
   color: black;
 }
 
+@media screen and (max-width: 920px) {
+  .navbar ul {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .navbar li { 
+    width: 100%;
+    border-bottom: 1px solid #333;
+  }
+
+  .navbar li a {
+    text-align: center;
+    padding: 1.5rem;
+  }
+}
