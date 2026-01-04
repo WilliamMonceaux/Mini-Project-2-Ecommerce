@@ -4,9 +4,7 @@ function PromoContainer(props) {
   return (
     <section className="flex-container">
       <div className="promo-container">
-        <header className="promo-header">
-          <h2> Featured Products: </h2>
-        </header>
+        <header className="promo-header"></header>
         {props.children}
       </div>
     </section>
