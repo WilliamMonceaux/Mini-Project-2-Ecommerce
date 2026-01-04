@@ -1,6 +1,4 @@
 import * as React from "react";
-import { NavBar } from "../../components/NavBar/NavBar";
-import { Header } from "../../components/Header/Header";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -12,6 +10,7 @@ import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import MuiCard from "@mui/material/Card";
+import { useUserContext } from "../../Context/UserContext";
 import { styled } from "@mui/material/styles";
 
 const Card = styled(MuiCard)(({ theme }) => ({
@@ -34,6 +33,8 @@ export default function SignUp() {
   const [passwordErrorMessage, setPasswordErrorMessage] = React.useState("");
   const [nameError, setNameError] = React.useState(false);
   const [nameErrorMessage, setNameErrorMessage] = React.useState("");
+
+  const { handleUpdateUser } = useUserContext();
 
   const validateInputs = () => {
     const password = document.getElementById("password");
@@ -64,6 +65,8 @@ export default function SignUp() {
     event.preventDefault();
     if (nameError || passwordError) return;
     const data = new FormData(event.currentTarget);
+    const userName = data.get("name");
+    handleUpdateUser({ name: userName });
     console.log({
       name: data.get("name"),
       password: data.get("password"),
@@ -83,8 +86,6 @@ export default function SignUp() {
       }}
     >
       <CssBaseline />
-      <Header />
-      <NavBar />
       <Stack
         sx={{
           flexGrow: 1,
@@ -160,7 +161,7 @@ export default function SignUp() {
           <Divider sx={{ my: 1 }}>
             <Typography sx={{ color: "text.secondary" }}>or</Typography>
           </Divider>
-          <Typography sx={{ textAlign: "center", fontSize: '1.2rem' }}>
+          <Typography sx={{ textAlign: "center", fontSize: "1.2rem" }}>
             Already have an account?{" "}
             <Link
               component="button"
