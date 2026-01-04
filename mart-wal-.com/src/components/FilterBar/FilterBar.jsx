@@ -13,7 +13,7 @@ function FilterBar({ products, onFilterChange }) {
   const [category, setCategory] = useState("all");
   const [sortOrder, setSortOrder] = useState("default");
 
-  let filteredProducts = [...products];
+  let filteredProducts = products ? [...products] : [];
 
   if (category !== "all") {
     filteredProducts = filteredProducts.filter(
