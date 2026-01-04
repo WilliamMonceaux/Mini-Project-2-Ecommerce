@@ -9,5 +9,5 @@ html {
 }
 
 body {
-    background-image: linear-gradient(to right, rgb(0, 176, 255), rgb(153, 223, 255));
+    background-image: radial-gradient( rgb(0, 176, 255),rgb(153, 223, 255));
 }
