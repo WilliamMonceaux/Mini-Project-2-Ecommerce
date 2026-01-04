@@ -16,4 +16,8 @@ function UserProvider(props) {
     </UserContext.Provider>);
 }
 
+export const useUserContext = () => {
+    return useContext(UserContext);
+}
+
 export { UserProvider };
