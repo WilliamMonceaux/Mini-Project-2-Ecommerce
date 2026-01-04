@@ -1,18 +1,23 @@
-import { NavBar } from '../../components/NavBar/NavBar';
-import { Header } from '../../components/Header/Header';
-import { useContext } from 'react';
-import { CartContext } from '../../Context/CartContext.jsx';
-import { Box, Typography, Grid, Card, Button, CardMedia, CardContent, CardActions } from '@mui/material';
+import { useContext } from "react";
+import { CartContext } from "../../Context/CartContext.jsx";
+import {
+  Box,
+  Typography,
+  Grid,
+  Card,
+  Button,
+  CardMedia,
+  CardContent,
+  CardActions,
+} from "@mui/material";
 
 function Cart() {
+  const { addCart, removeProduct } = useContext(CartContext);
 
-    const { addCart, removeProduct } = useContext(CartContext);
-
-    return(<>
-    <Header />
-    <NavBar />
-    <Box>
-  <Grid container spacing={3}>
+  return (
+    <>
+      <Box>
+        <Grid container spacing={3}>
           {addCart.map((product) => {
             return (
               <Grid
@@ -29,7 +34,7 @@ function Cart() {
                     border: 2,
                     boxShadow: 4,
                     padding: 1,
-                    marginTop: '20px',
+                    marginTop: "20px",
                   }}
                 >
                   <CardMedia
@@ -48,13 +53,13 @@ function Cart() {
                     >
                       ${product.price.toFixed(2)}
                     </Typography>
-                    <Typography variant='body1' component='div'>
+                    <Typography variant="body1" component="div">
                       {product.description}
                     </Typography>
                   </CardContent>
                   <CardActions>
                     <Button
-                    variant='contained'
+                      variant="contained"
                       size="medium"
                       sx={{ bgcolor: "#CC0000", color: "white" }}
                       onClick={(e) => {
@@ -71,8 +76,9 @@ function Cart() {
             );
           })}
         </Grid>
-    </Box>
-    </>);
+      </Box>
+    </>
+  );
 }
 
 export { Cart };
