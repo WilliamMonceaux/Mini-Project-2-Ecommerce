@@ -7,8 +7,6 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import { CartContext } from '../../Context/CartContext.jsx';
-import { PromoContainer } from "../PromoContainer/PromoContainer.jsx";
-import { FilterBar } from '../FilterBar/FilterBar.jsx';
 
 function CardsTemplate({ products }) {
 
@@ -22,8 +20,6 @@ function CardsTemplate({ products }) {
 
   return (
     <main className="card-container">
-      <PromoContainer>
-        <FilterBar products={products} onFilterChange={setDisplayProducts} />
         <Grid container spacing={3}>
           {displayProducts.map((product) => {
             return (
@@ -80,7 +76,6 @@ function CardsTemplate({ products }) {
             );
           })}
         </Grid>
-      </PromoContainer>
     </main>
   );
 }
