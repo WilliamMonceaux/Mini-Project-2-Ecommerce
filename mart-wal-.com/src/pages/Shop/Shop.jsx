@@ -27,7 +27,7 @@ function Shop() {
         Shop for Products:
       </h2>
       <FilterBar products={products} onFilterChange={setFilteredProducts} />
-      <CardsTemplate products={products} />
+      <CardsTemplate products={filteredProducts} />
     </PromoContainer>
   );
 }
