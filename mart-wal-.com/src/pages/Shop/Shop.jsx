@@ -1,7 +1,5 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Header } from "../../components/Header/Header.jsx";
-import { NavBar } from "../../components/NavBar/NavBar.jsx";
 import { CardsTemplate } from "../../components/Cards/CardsTemplate.jsx";
 
 function Shop() {
@@ -22,8 +20,6 @@ function Shop() {
 
   return (
     <>
-      <Header />
-      <NavBar />
       <CardsTemplate products={products} />
     </>
   );
