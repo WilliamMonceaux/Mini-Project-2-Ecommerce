@@ -1,0 +1,23 @@
+h2 {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+}
+
+.promo-header {
+    margin: 3rem;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: center;
+    height: auto;
+}
+
+.promo-container {
+    background-color: white;
+    border: double black 7px;
+    margin: 3rem;
+    width: 100%;
+    text-align: center;
+    padding: 3rem;
+}
