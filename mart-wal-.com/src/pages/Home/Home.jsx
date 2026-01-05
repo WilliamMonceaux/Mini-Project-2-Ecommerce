@@ -26,50 +26,59 @@ function Home() {
   const showCaseProducts = products.slice(0, 4);
 
   return (
-    <PromoContainer>
-
-         <Typography
+    <Box component="main">
+      <PromoContainer>
+        <Typography
           variant="h4"
+          component="h2"
           gutterBottom
           align="center"
           sx={{ mb: 4, fontWeight: "Bold", fontSize: "2.6rem" }}
         >
           Quality finds, Cheaper prices
         </Typography>
-        <Typography variant='h5' component='p' align='center' sx={{ 
-      mb: 6, 
-      maxWidth: '700px', 
-      mx: 'auto',
-      fontWeight: 400,
-      lineHeight: 1.6
-    }} >
-            Here you can find an assortment of products ranging from Men's Clothing, Jewerly, Electronics, and Women's Clothing. Start Shopping now!
+        <Typography
+          variant="h5"
+          component="p"
+          align="center"
+          sx={{
+            mb: 6,
+            maxWidth: "700px",
+            mx: "auto",
+            fontWeight: 400,
+            lineHeight: 1.6,
+          }}
+        >
+          Here you can find an assortment of products ranging from Men's
+          Clothing, Jewerly, Electronics, and Women's Clothing. Start Shopping
+          now!
         </Typography>
-        
-<Box sx={{ p: 4, width: '100%' }}>
 
-  <Grid 
-    container 
-    spacing={4} 
-    justifyContent="center" 
-    alignItems="stretch"
-  >
-    {showCaseProducts.map((item) => (
-      <Grid 
-        item 
-        key={item.id} 
-        xs={12}    
-        md={6}    
-        lg={3}   
-        display="flex" 
-        justifyContent="center" 
-      >
-        <FeaturedProduct product={item} />
-      </Grid>
-    ))}
-  </Grid>
-</Box>
-    </PromoContainer>
+        <Box component="section" sx={{ p: 4, width: "100%" }}>
+          <Grid
+            component="li"
+            container
+            spacing={4}
+            justifyContent="center"
+            alignItems="stretch"
+          >
+            {showCaseProducts.map((item) => (
+              <Grid
+                item
+                key={item.id}
+                xs={12}
+                md={6}
+                lg={3}
+                display="flex"
+                justifyContent="center"
+              >
+                <FeaturedProduct product={item} />
+              </Grid>
+            ))}
+          </Grid>
+        </Box>
+      </PromoContainer>
+    </Box>
   );
 }
 
