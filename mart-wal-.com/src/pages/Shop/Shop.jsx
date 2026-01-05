@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { CardsTemplate } from "../../components/Cards/CardsTemplate.jsx";
 import { PromoContainer } from "../../components/PromoContainer/PromoContainer.jsx";
 import { FilterBar } from "../../components/FilterBar/FilterBar.jsx";
+import { Typography } from '@mui/material';
 
 function Shop() {
   const [products, setProducts] = useState([]);
@@ -23,9 +24,9 @@ function Shop() {
 
   return (
     <PromoContainer>
-      <h2>
+      <Typography variant="h2" gutterBottom>
         Shop for Products:
-      </h2>
+      </Typography>
       <FilterBar products={products} onFilterChange={setFilteredProducts} />
       <CardsTemplate products={filteredProducts} />
     </PromoContainer>
