@@ -27,6 +27,6 @@ https://www.figma.com/design/SoqzabR4aG1nvsTuqe1Ypy/Mini-Project-2?node-id=0-1&p
 
 React
 
-Express Back-end and Server
+Node.js and Express
 
 Notes and Powerpoints from class
