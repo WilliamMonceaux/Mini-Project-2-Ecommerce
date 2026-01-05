@@ -15,8 +15,7 @@ function Cart() {
   const { addCart, removeProduct } = useContext(CartContext);
 
   return (
-    <>
-      <Box>
+      <Box component='main'>
         <Grid container spacing={3}>
           {addCart.map((product) => {
             return (
@@ -26,8 +25,10 @@ function Cart() {
                 size={{ xs: 12, md: 6, lg: 3 }}
                 display="flex"
                 justifyContent="center"
+                component='ul'
               >
                 <Card
+                component='article'
                   sx={{
                     width: 300,
                     maxWidth: "100%",
@@ -77,7 +78,6 @@ function Cart() {
           })}
         </Grid>
       </Box>
-    </>
   );
 }
 
