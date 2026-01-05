@@ -4,6 +4,7 @@ import { CardsTemplate } from "../../components/Cards/CardsTemplate.jsx";
 import { PromoContainer } from "../../components/PromoContainer/PromoContainer.jsx";
 import { FilterBar } from "../../components/FilterBar/FilterBar.jsx";
 import { Typography } from '@mui/material';
+import { Box } from '@mui/material';
 
 function Shop() {
   const [products, setProducts] = useState([]);
@@ -23,13 +24,15 @@ function Shop() {
   }, []);
 
   return (
+    <Box component='main'>
     <PromoContainer>
-      <Typography variant="h2" gutterBottom>
+      <Typography variant="h2" component='h2' gutterBottom>
         Shop for Products:
       </Typography>
       <FilterBar products={products} onFilterChange={setFilteredProducts} />
       <CardsTemplate products={filteredProducts} />
     </PromoContainer>
+    </Box>
   );
 }
 
