@@ -7,7 +7,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import { CartContext } from "../../Context/CartContext.jsx";
+import { CartContext } from "../Context/CartContext.jsx";
 
 function CardsTemplate({ products }) {
   const [displayProducts, setDisplayProducts] = useState(products);

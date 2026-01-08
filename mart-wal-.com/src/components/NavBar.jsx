@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { useUserContext } from "../../Context/UserContext";
+import { useUserContext } from "../Context/UserContext";
 import "./NavBar.css";
 
 function NavBar() {

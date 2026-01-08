@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { CartContext } from "../../Context/CartContext.jsx";
+import { CartContext } from "../Context/CartContext.jsx";
 import {
   Box,
   Typography,

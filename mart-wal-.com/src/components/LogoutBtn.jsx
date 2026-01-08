@@ -1,4 +1,4 @@
-import { useUserContext } from "../../Context/UserContext";
+import { useUserContext } from "../Context/UserContext";
 import "./logout-btn.css";
 
 function LogoutBtn() {
