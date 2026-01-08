@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { CardsTemplate } from "../../components/Cards/CardsTemplate.jsx";
-import { PromoContainer } from "../../components/PromoContainer/PromoContainer.jsx";
-import { FilterBar } from "../../components/FilterBar/FilterBar.jsx";
+import { CardsTemplate } from "../components/CardsTemplate.jsx";
+import { PromoContainer } from "../components/PromoContainer.jsx";
+import { FilterBar } from "../components/FilterBar.jsx";
 import { Typography } from '@mui/material';
 import { Box } from '@mui/material';
 

@@ -1,4 +1,4 @@
-import "./promo-container.css";
+import "../index.css";
 
 function PromoContainer(props) {
   return (

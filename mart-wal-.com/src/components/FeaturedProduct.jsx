@@ -2,7 +2,7 @@ import { Card, CardActionArea, CardMedia } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 function FeaturedProduct({product}) {
-    return(<Card component={article}
+    return(<Card component='article'
       sx={{ 
         width: '100%', 
         maxWidth: 280, 

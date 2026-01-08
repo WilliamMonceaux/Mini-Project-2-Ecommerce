@@ -1,4 +1,4 @@
-import './header.css';
+import '../index.css';
 import '@fontsource-variable/montserrat'
 
 function Header() {

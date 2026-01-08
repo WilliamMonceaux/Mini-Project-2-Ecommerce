@@ -1,6 +1,6 @@
-import { PromoContainer } from "../../components/PromoContainer/PromoContainer";
+import { PromoContainer } from "../components/PromoContainer";
 
-import { FeaturedProduct } from "../../components/Cards/FeaturedProduct";
+import { FeaturedProduct } from "../components/FeaturedProduct";
 
 import { Box, Typography, Grid } from "@mui/material";
 

@@ -1,5 +1,5 @@
 import { useUserContext } from "../Context/UserContext";
-import "./logout-btn.css";
+import "../index.css";
 
 function LogoutBtn() {
   const { currentUser, handleUpdateUser } = useUserContext();
