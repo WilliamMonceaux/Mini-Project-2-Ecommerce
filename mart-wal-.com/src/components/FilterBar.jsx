@@ -54,7 +54,7 @@ function FilterBar({ products, onFilterChange }) {
   const uniqueCategories = ["all", ...new Set(products.map((p) => p.category))];
 
   return (
-    <Box sx={{ display: "flex", gap: 2, mb: 4 }}>
+    <Box sx={{ display: "flex", flexWrap: 'wrap', justifyContent: 'center', gap: 2, mb: 4 }}>
       <TextField
         label="Search products..."
         variant="outlined"
