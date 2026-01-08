@@ -88,15 +88,16 @@ display: flex;
     display: flex;
     justify-content: center;
     height: auto;
+    width: 100%;
 }
 
 .promo-container {
     background-color: white;
     border: double black 7px;
-    margin: 3rem;
-    width: 100%;
+    width: 90%;
     text-align: center;
     padding: 3rem;
+    margin: 3rem auto;
 }
 
 .navbar ul {
