@@ -15,7 +15,7 @@ function Cart() {
   const { addCart, removeProduct } = useContext(CartContext);
 
   return (
-    <Box component="main">
+    <Box component="main" sx={{ pb: 8, }}>
       <Grid container spacing={3}>
         {addCart.map((product) => {
           return (
