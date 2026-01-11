@@ -70,7 +70,7 @@ function CardsTemplate({ products }) {
                       handleAddToCart(product);
                     }}
                   >
-                    Add to Card
+                    Add to Cart
                   </Button>
                 </CardActions>
               </Card>
