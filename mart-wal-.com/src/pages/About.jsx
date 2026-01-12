@@ -4,7 +4,7 @@ function About() {
   return (
     <main>
       <Box component="main">
-        <Container maxWidth="lg" sx={{ mt: 8 }}>
+        <Container maxWidth="lg" sx={{ my: 8 }}>
           <Grid component="section" container justifyContent="center">
             <Grid item sx={{ xs: 12, md: 10 }}>
               <Typography
