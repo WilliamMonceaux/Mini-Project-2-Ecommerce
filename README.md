@@ -1,6 +1,6 @@
 # Mini-Project-2
 
-My Mini-Project-2 is an E-Commerce website that offers products based on the API store. It has the ability to create new accounts and offers products to the consumer and allows them to cart. The idea is to show off different Concepts I have learned up to this point using React, back-end usage, and the use of React Libraries (namely MUI). 
+My Mini-Project-2 is an E-Commerce website that offers products based on the API store. It has the ability to create new accounts and offers products to the consumer and allows them to add to cart. The idea is to show off different Concepts I have learned up to this point using React, back-end usage, and the use of React Libraries (namely MUI). 
 
 Requirements gathered:
 - Fetching products from store api
