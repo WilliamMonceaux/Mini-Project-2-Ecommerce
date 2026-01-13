@@ -38,12 +38,13 @@ function Home() {
           Quality finds, Cheaper prices
         </Typography>
         <Typography
-          variant="h5"
+          variant="h4"
           component="p"
           align="center"
           sx={{
             mb: 6,
             maxWidth: "700px",
+            fontFamily: 'Roboto',
             mx: "auto",
             fontWeight: 400,
             lineHeight: 1.6,
