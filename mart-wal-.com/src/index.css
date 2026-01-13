@@ -84,13 +84,6 @@ display: flex;
     margin: 3rem;
 }
 
-.flex-container {
-    display: flex;
-    justify-content: center;
-    height: auto;
-    width: 100%;
-}
-
 .promo-container {
     background-color: white;
     border: double black 7px;
@@ -144,5 +137,11 @@ li a.active {
   .navbar li a {
     text-align: center;
     padding: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .promo-container {
+    width: 100%;
   }
 }
