@@ -14,7 +14,7 @@ function Footer() {
     >
       <Container maxWidth="lg">
         <Typography variant="body1" align="center" sx={{ fontSize: '1.4rem'}}>
-          © 2026 Mart-Wal. All rights reserved.
+          © 2026 MartWal. All rights reserved.
         </Typography>
       </Container>
     </Box>
