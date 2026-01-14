@@ -25,6 +25,7 @@ function CardsTemplate({ products }) {
           return (
             <Grid
               item
+              component='li'
               key={product.id}
               size={{ xs: 12, md: 6, lg: 3 }}
               display="flex"
