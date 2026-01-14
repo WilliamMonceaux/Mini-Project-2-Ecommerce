@@ -51,13 +51,11 @@ function Home() {
           }}
         >
           Here you can find an assortment of products ranging from Men's
-          Clothing, Jewerly, Electronics, and Women's Clothing. Start Shopping
-          now!
+          Clothing, Jewerly, Electronics, and Women's Clothing. Here are a few products that we offer!
         </Typography>
 
         <Box component="section" sx={{ p: 4, width: "100%" }}>
           <Grid
-            component="li"
             container
             spacing={4}
             justifyContent="center"
