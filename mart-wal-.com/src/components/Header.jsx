@@ -4,8 +4,7 @@ import '@fontsource-variable/montserrat'
 function Header() {
     return(
         <header className='page-header'>
-            <h1>MartWal.com</h1>
-            <p>Welcome to MartWal, an Eshop near you.</p>
+            <h1>MartWal</h1>
         </header>
     )
 }
