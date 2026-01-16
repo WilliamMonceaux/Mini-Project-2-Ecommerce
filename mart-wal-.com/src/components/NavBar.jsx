@@ -1,7 +1,7 @@
+import * as React from "react";
 import { NavLink } from "react-router-dom";
 import { useUserContext } from "../Context/UserContext";
 import "../index.css";
-import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -10,11 +10,8 @@ import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
 
 const pages = [
   { Title: "Home", Path: "/" },
@@ -27,7 +24,6 @@ const pages = [
 function NavBar() {
   const { currentUser } = useUserContext();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -57,10 +53,16 @@ function NavBar() {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: "#212121" }}>
+    <AppBar position="static" sx={{ backgroundColor: "#1976d2" }}>
       <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+        <Toolbar disableGutters sx={{ position: "relative" }}>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: "flex", md: "none" },
+              justifyContent: "flex-end",
+            }}
+          >
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -89,7 +91,10 @@ function NavBar() {
             >
               {pages.map((page) => (
                 <MenuItem key={page.Title} onClick={handleCloseNavMenu}>
-                  <NavLink to={page.Path} style={{ textDecoration: 'none', color: 'inherit'}}>
+                  <NavLink
+                    to={page.Path}
+                    style={{ textDecoration: "none", color: "inherit" }}
+                  >
                     <Typography
                       sx={{ textAlign: "center", fontSize: "1.6rem" }}
                     >
@@ -100,6 +105,25 @@ function NavBar() {
               ))}
             </Menu>
           </Box>
+
+          <Typography
+            variant="h6"
+            noWrap
+            component="div"
+            sx={{
+              position: "absolute",
+              left: "50%",
+              transform: "translateX(-50%)",
+              fontWeight: 600,
+              fontSize: "3.5rem",
+              letterSpacing: ".1rem",
+              color: "inherit",
+              textDecoration: "none",
+              fontFamily: "Arial, Helvetica, sans-serif",
+            }}
+          >
+            MartWal
+          </Typography>
 
           <Box
             sx={{
@@ -118,6 +142,7 @@ function NavBar() {
                   color: "white",
                   display: "block",
                   fontSize: "1.6rem",
+                  fontWeight: 750
                 }}
               >
                 {page.Title}
