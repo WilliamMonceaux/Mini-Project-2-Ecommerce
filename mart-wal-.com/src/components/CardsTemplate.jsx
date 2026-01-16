@@ -1,18 +1,14 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import { CartContext } from "../Context/CartContext.jsx";
 
-function CardsTemplate({ products }) {
+function CardsTemplate({ products , children}) {
   const [displayProducts, setDisplayProducts] = useState(products);
-
-  const { handleAddToCart } = useContext(CartContext);
 
   useEffect(() => {
     setDisplayProducts(products);
@@ -24,7 +20,6 @@ function CardsTemplate({ products }) {
         {displayProducts.map((product) => {
           return (
             <Grid
-              item
               component='li'
               key={product.id}
               size={{ xs: 12, md: 6, lg: 3 }}
@@ -63,16 +58,7 @@ function CardsTemplate({ products }) {
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button
-                    size="medium"
-                    sx={{ bgcolor: "black", color: "white" }}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleAddToCart(product);
-                    }}
-                  >
-                    Add to Cart
-                  </Button>
+                { typeof children === 'function' ? children(product) : children }
                 </CardActions>
               </Card>
             </Grid>
@@ -82,5 +68,6 @@ function CardsTemplate({ products }) {
     </Box>
   );
 }
+
 
 export { CardsTemplate };
