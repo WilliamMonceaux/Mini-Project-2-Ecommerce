@@ -6,7 +6,6 @@ import { Cart } from "./pages/Cart.jsx";
 import { About } from "./pages/About.jsx";
 import SignUp from "./pages/SignUp.jsx";
 import { NavBar } from './components/NavBar.jsx';
-import { Header } from './components/Header.jsx';
 import { Footer } from "./components/Footer.jsx";
 import { LogoutBtn } from './components/LogoutBtn.jsx';
 import { AddItemsToCart } from "./Context/CartContext.jsx";
@@ -16,7 +15,6 @@ function App() {
   return (
     <AddItemsToCart>
       <UserProvider>
-        <Header />
         <NavBar />
         <LogoutBtn />
         
