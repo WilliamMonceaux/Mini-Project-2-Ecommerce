@@ -1,14 +1,18 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { CardsTemplate } from "../components/CardsTemplate.jsx";
 import { PromoContainer } from "../components/PromoContainer.jsx";
 import { FilterBar } from "../components/FilterBar.jsx";
-import { Typography } from '@mui/material';
-import { Box } from '@mui/material';
+import { Typography } from "@mui/material";
+import { Box } from "@mui/material";
+import { Button } from "@mui/material";
+import { CartContext } from "../Context/CartContext.jsx";
 
-function Shop() {
+function Shop({ product }) {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
+
+  const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -24,14 +28,27 @@ function Shop() {
   }, []);
 
   return (
-    <Box component='main'>
-    <PromoContainer>
-      <Typography variant="h2" component='h2' gutterBottom>
-        Shop for Products:
-      </Typography>
-      <FilterBar products={products} onFilterChange={setFilteredProducts} />
-      <CardsTemplate products={filteredProducts} />
-    </PromoContainer>
+    <Box component="main">
+      <PromoContainer>
+        <Typography variant="h2" component="h2" gutterBottom>
+          Shop for Products:
+        </Typography>
+        <FilterBar products={products} onFilterChange={setFilteredProducts} />
+        <CardsTemplate products={filteredProducts}>
+          {(product) => (
+          <Button
+            size="medium"
+            sx={{ bgcolor: "black", color: "white" }}
+            onClick={(e) => {
+              e.preventDefault();
+              addToCart(product);
+            }}
+          >
+            Add to Cart
+          </Button>
+          )}
+        </CardsTemplate>
+      </PromoContainer>
     </Box>
   );
 }
