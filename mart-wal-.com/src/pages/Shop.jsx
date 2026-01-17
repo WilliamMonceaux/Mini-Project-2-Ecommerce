@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CardsTemplate } from "../components/CardsTemplate.jsx";
+import { Products } from "../components/Products.jsx";
 import { PromoContainer } from "../components/PromoContainer.jsx";
 import { FilterBar } from "../components/FilterBar.jsx";
 import { Typography } from "@mui/material";
@@ -20,7 +20,7 @@ function Shop() {
           Shop for Products:
         </Typography>
         <FilterBar products={products} onFilterChange={setFilteredProducts} />
-        <CardsTemplate products={filteredProducts}>
+        <Products products={filteredProducts}>
            {(product) => (
              <Button
                     size="medium"
@@ -33,7 +33,7 @@ function Shop() {
                     Add to Cart
                   </Button> 
           )}
-        </CardsTemplate>
+        </Products>
       </PromoContainer>
     </Box>
   );
