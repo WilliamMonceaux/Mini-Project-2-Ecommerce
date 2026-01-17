@@ -31,6 +31,8 @@ const Card = styled(MuiCard)(({ theme }) => ({
 export default function SignUpForm() {
   const [passwordError, setPasswordError] = React.useState(false);
   const [passwordErrorMessage, setPasswordErrorMessage] = React.useState("");
+  const [emailError, setEmailError] = React.useState(false);
+  const [emailErrorMessage, setEmailErrorMessage] = React.useState(false);
   const [nameError, setNameError] = React.useState(false);
   const [nameErrorMessage, setNameErrorMessage] = React.useState("");
 
@@ -39,6 +41,7 @@ export default function SignUpForm() {
   const validateInputs = () => {
     const password = document.getElementById("password");
     const name = document.getElementById("name");
+    const email = document.getElementById("email");
     let isValid = true;
 
     if (!password.value || password.value.length < 6) {
@@ -48,6 +51,12 @@ export default function SignUpForm() {
     } else {
       setPasswordError(false);
       setPasswordErrorMessage("");
+    }
+
+    if (!email.value || email.value.length < 1) {
+      setEmailError(true);
+      setEmailErrorMessage("Email is required.");
+      isValid = false;
     }
 
     if (!name.value || name.value.length < 1) {
@@ -104,7 +113,7 @@ export default function SignUpForm() {
             sx={{ display: "flex", flexDirection: "column", gap: 2 }}
           >
             <FormControl>
-              <FormLabel htmlFor="name">Full name</FormLabel>
+              <FormLabel htmlFor="name" sx={{fontSize: '1.2rem;'}}>Username</FormLabel>
               <TextField
                 id="name"
                 name="name"
@@ -126,7 +135,29 @@ export default function SignUpForm() {
               />
             </FormControl>
             <FormControl>
-              <FormLabel htmlFor="password">Password</FormLabel>
+              <FormLabel htmlFor="email" sx={{fontSize: '1.2rem;'}}>Email</FormLabel>
+              <TextField
+                id="email"
+                name="email"
+                required
+                fullWidth
+                size="small"
+                placeholder="JonSnow@gmail.com"
+                error={emailError}
+                helperText={emailErrorMessage}
+                sx={{
+                  "& .MuiInputBase-input": {
+                    fontSize: "1.3rem",
+                    padding: "10px",
+                  },
+                  "& .MuiFormHelperText-root": {
+                    fontSize: "1.1rem",
+                  },
+                }}
+              />
+            </FormControl>
+            <FormControl>
+              <FormLabel htmlFor="password" sx={{ fontSize: '1.2rem'}}>Password</FormLabel>
               <TextField
                 required
                 fullWidth
