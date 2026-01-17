@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { CartContext } from "../Context/CartContext.jsx";
 import { Button } from "@mui/material";
-import { CardsTemplate } from "../components/CardsTemplate.jsx";
+import { Products } from "../components/Products.jsx";
 import { Box, Typography } from '@mui/material';
 
 function Cart() {
@@ -14,7 +14,7 @@ function Cart() {
   }
 
   return (
-    <CardsTemplate products={cart}>
+    <Products products={cart}>
       {(product) => (
         <Button
           variant="contained"
@@ -28,7 +28,7 @@ function Cart() {
           Remove Item
         </Button>
   )}
-    </CardsTemplate>
+    </Products>
   );
 }
 
