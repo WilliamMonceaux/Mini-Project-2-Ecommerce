@@ -32,6 +32,7 @@ function Products({ products, children }) {
                   border: 2,
                   boxShadow: 4,
                   padding: 1,
+                  textAlign: 'center'
                 }}
               >
                 <CardActionArea sx={{ flexGrow: 1 }}>
