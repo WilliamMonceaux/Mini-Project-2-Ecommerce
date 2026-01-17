@@ -22,4 +22,8 @@ function AddItemsToCart(props) {
     );
 }
 
+export const useCartContext = () => {
+    return useContext(CartContext);
+}
+
 export { AddItemsToCart, CartContext };
