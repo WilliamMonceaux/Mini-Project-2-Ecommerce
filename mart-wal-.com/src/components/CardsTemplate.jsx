@@ -7,8 +7,6 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import CardActionArea from "@mui/material/CardActionArea";
-import { Link } from "react-router-dom";
 import { CartContext } from "../Context/CartContext.jsx";
 
 function CardsTemplate({ products }) {
@@ -46,57 +44,43 @@ function CardsTemplate({ products }) {
                   padding: 1,
                 }}
               >
-                <CardActionArea
-                  component={Link}
-                  to="/shop"
-                  sx={{
-                    flexGrow: 1,
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "stretch",
-                    "& .MuiCardActionArea-focusHighlight": {
-                      background: "transparent",
-                    },
-                  }}
-                >
-                  <CardMedia
-                    component="img"
-                    image={product.image}
-                    alt={product.title}
-                    sx={{ height: 200, objectFit: "contain" }}
-                  />
-                  <CardContent sx={{ flexGrow: 1 }}>
-                    <Typography
-                      gutterBottom
-                      variant="h5"
-                      component="h2"
-                      fontWeight="bold"
-                    >
-                      {product.title}
-                    </Typography>
-                    <Typography
-                      variant="h5"
-                      component="p"
-                      sx={{ color: "success.main", my: 2, fontWeight: 750 }}
-                    >
-                      ${product.price.toFixed(2)}
-                    </Typography>
-                    <Typography
-                      variant="body1"
-                      component="p"
-                      sx={{
-                        fontSize: "1.2rem",
-                        overflow: "hidden",
-                        textOverflow: "ellipsis",
-                        display: "-webkit-box",
-                        WebkitLineClamp: "5",
-                        WebkitBoxOrient: "vertical",
-                      }}
-                    >
-                      {product.description}
-                    </Typography>
-                  </CardContent>
-                </CardActionArea>
+                <CardMedia
+                  component="img"
+                  image={product.image}
+                  alt={product.title}
+                  sx={{ height: 200, objectFit: "contain" }}
+                />
+                <CardContent sx={{ flexGrow: 1 }}>
+                  <Typography
+                    gutterBottom
+                    variant="h5"
+                    component="h2"
+                    fontWeight="bold"
+                  >
+                    {product.title}
+                  </Typography>
+                  <Typography
+                    variant="h5"
+                    component="p"
+                    sx={{ color: "success.main", my: 2, fontWeight: 750 }}
+                  >
+                    ${product.price.toFixed(2)}
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    component="p"
+                    sx={{
+                      fontSize: "1.2rem",
+                      overflow: "hidden",
+                      textOverflow: "ellipsis",
+                      display: "-webkit-box",
+                      WebkitLineClamp: "5",
+                      WebkitBoxOrient: "vertical",
+                    }}
+                  >
+                    {product.description}
+                  </Typography>
+                </CardContent>
                 <CardActions>
                   <Button
                     size="medium"
