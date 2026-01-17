@@ -1,4 +1,5 @@
 import { FeaturedProduct } from "../components/FeaturedProduct";
+import { Products } from '../components/Products';
 import { Box, Typography, Grid } from "@mui/material";
 import { useFetchContext } from '../Context/FetchContext';
 
