@@ -10,7 +10,13 @@ function Cart() {
 
   if (cart.length === 0) {
     return (
-      <Box sx={{ textAlign: "center", mt: "3rem", fontFamily: "Roboto, sans-serif" }}>
+      <Box
+        sx={{
+          textAlign: "center",
+          mt: "3rem",
+          fontFamily: "Roboto, sans-serif",
+        }}
+      >
         <Typography component="h2" variant="h4">
           Cart is currently empty. Please go into the Shop and add products to
           the cart.
@@ -36,6 +42,19 @@ function Cart() {
           </Button>
         )}
       </Products>
+      <Box sx={{ mt: 4 }}>
+        {cart ? (
+          <Typography sx={{ fontSize: "1.6rem" }}>
+            Subtotal ({cart.length} items): $
+            {cart.reduce(
+              (accumulator, product) => accumulator + product.price,
+              0,
+            )}
+          </Typography>
+        ) : (
+          ""
+        )}
+      </Box>
     </PromoContainer>
   );
 }
