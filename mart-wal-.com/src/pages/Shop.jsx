@@ -20,7 +20,7 @@ function Shop() {
           Shop for Products:
         </Typography>
         <FilterBar products={products} onFilterChange={setFilteredProducts} />
-        <Products products={filteredProducts}>
+        { products.length > 0 ?         <Products products={filteredProducts}>
            {(product) => (
              <Button
                     size="medium"
@@ -33,7 +33,7 @@ function Shop() {
                     Add to Cart
                   </Button> 
           )}
-        </Products>
+        </Products> : <Typography variant="h4" component="p" textAlign="center">Loading...</Typography>}
       </PromoContainer>
     </Box>
   );
