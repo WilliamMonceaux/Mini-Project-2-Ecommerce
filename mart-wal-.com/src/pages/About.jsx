@@ -8,7 +8,7 @@ function About() {
           <Grid component="section" container justifyContent="center">
             <Grid item sx={{ xs: 12, md: 10 }}>
               <Typography
-                variant="h3"
+                variant="h4"
                 component="body1"
                 align="center"
                 sx={{ lineHeight: 2 }}
