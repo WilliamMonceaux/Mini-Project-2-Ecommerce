@@ -44,7 +44,13 @@ function Home() {
       </Typography>
 
       <Box component="section" sx={{ p: 4, width: "100%" }}>
-        <Products products={featuredProducts} />
+        {featuredProducts.length > 0 ? (
+          <Products products={featuredProducts} />
+        ) : (
+          <Typography variant="h4" component="p" textAlign="center">
+            Loading...
+          </Typography>
+        )}
       </Box>
     </Box>
   );
