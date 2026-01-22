@@ -1,12 +1,12 @@
 import { useContext } from "react";
-import { Button } from "@mui/material";
 import { Box, Typography } from "@mui/material";
 import { Products } from "../components/Products.jsx";
 import { CartContext } from "../Context/CartContext.jsx";
+import { RemoveItemBtn } from '../components/RemoveItemBtn.jsx';
 import { PromoContainer } from "../components/PromoContainer.jsx";
 
 function Cart() {
-  const { cart, removeProduct } = useContext(CartContext);
+  const { cart } = useContext(CartContext);
 
   if (cart.length === 0) {
     return (
@@ -28,19 +28,7 @@ function Cart() {
   return (
     <PromoContainer>
       <Products products={cart}>
-        {(product) => (
-          <Button
-            variant="contained"
-            size="medium"
-            sx={{ bgcolor: "#CC0000", color: "white", fontWeight: "bold" }}
-            onClick={(e) => {
-              e.preventDefault();
-              removeProduct(product.id);
-            }}
-          >
-            Remove Item
-          </Button>
-        )}
+        {(product) => <RemoveItemBtn productId={product.id} />}
       </Products>
       <Box sx={{ mt: 4 }}>
         {cart ? (
