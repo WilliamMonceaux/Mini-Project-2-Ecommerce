@@ -39,7 +39,7 @@ function Cart() {
       <Box sx={{ mt: 4 }}>
         {cart ? (
           <Typography sx={{ fontSize: "1.6rem" }}>
-            Subtotal ({cart.length} items): $
+            Subtotal ({cart.reduce((accumulator, item) => accumulator + item.quantity, 0)} items): $
             {cart.reduce(
               (accumulator, product) => accumulator + product.price,
               0,
