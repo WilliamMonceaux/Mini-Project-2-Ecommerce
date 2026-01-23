@@ -74,7 +74,7 @@ function Products({ products, children }) {
                     </Typography>
                   </CardContent>
                 </CardActionArea>
-                <CardActions>
+                <CardActions sx={{ display: 'flex', justifyContent: 'space-between' }}>
                   {typeof children === "function"
                     ? children(product)
                     : children}
