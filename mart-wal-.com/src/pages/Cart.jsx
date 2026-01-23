@@ -2,8 +2,9 @@ import { useContext } from "react";
 import { Box, Typography } from "@mui/material";
 import { Products } from "../components/Products.jsx";
 import { CartContext } from "../Context/CartContext.jsx";
-import { RemoveItemBtn } from '../components/RemoveItemBtn.jsx';
+import { RemoveItemBtn } from "../components/RemoveItemBtn.jsx";
 import { PromoContainer } from "../components/PromoContainer.jsx";
+import { QuantityCounter } from "../components/QuantityCounter.jsx";
 
 function Cart() {
   const { cart } = useContext(CartContext);
@@ -28,7 +29,12 @@ function Cart() {
   return (
     <PromoContainer>
       <Products products={cart}>
-        {(product) => <RemoveItemBtn productId={product.id} />}
+        {(product) => (
+          <>
+            <RemoveItemBtn productId={product.id} />
+              <QuantityCounter />
+          </>
+        )}
       </Products>
       <Box sx={{ mt: 4 }}>
         {cart ? (
