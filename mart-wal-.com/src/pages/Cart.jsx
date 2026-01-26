@@ -32,18 +32,23 @@ function Cart() {
         {(product) => (
           <>
             <RemoveItemBtn productId={product.id} />
-              <QuantityCounter />
+            <QuantityCounter item={product} />
           </>
         )}
       </Products>
       <Box sx={{ mt: 4 }}>
         {cart ? (
-          <Typography sx={{ fontSize: "1.6rem" }}>
-            Subtotal ({cart.reduce((accumulator, item) => accumulator + item.quantity, 0)} items): $
-            {cart.reduce(
-              (accumulator, product) => accumulator + product.price,
-              0,
-            )}
+          <Typography sx={{ fontSize: "1.6rem", fontWeight: "bold" }}>
+            Subtotal (
+            {cart.reduce((accumulator, item) => accumulator + item.quantity, 0)}{" "}
+            items): $
+            {cart
+              .reduce(
+                (accumulator, product) =>
+                  accumulator + product.price * product.quantity,
+                0,
+              )
+              .toFixed(2)}
           </Typography>
         ) : (
           ""
