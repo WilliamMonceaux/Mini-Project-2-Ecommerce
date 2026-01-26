@@ -39,10 +39,9 @@ body {
   margin: 3rem auto;
 }
 
-.quantity-display-flex {
+.quantity-counter-body {
   display: flex;
   align-items: center;
-  border: 1px solid red;
 }
 
 .quantity-btn {
@@ -50,9 +49,9 @@ body {
   height: 4rem;
 }
 
-div.quantity-display-flex > p.quantity-amount {
+div.quantity-counter-body > p.quantity-amount {
   font-size: 1.6rem;
-  margin: 0 .5rem;
+  margin: 0 0.5rem;
 }
 
 @media screen and (max-width: 600px) {
