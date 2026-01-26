@@ -1,10 +1,11 @@
 import { useContext } from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Button } from "@mui/material";
 import { Products } from "../components/Products.jsx";
 import { CartContext } from "../Context/CartContext.jsx";
 import { RemoveItemBtn } from "../components/RemoveItemBtn.jsx";
 import { PromoContainer } from "../components/PromoContainer.jsx";
 import { QuantityCounter } from "../components/QuantityCounter.jsx";
+import { PurchaseBtn } from '../components/PurchaseBtn.jsx';
 
 function Cart() {
   const { cart } = useContext(CartContext);
@@ -38,6 +39,7 @@ function Cart() {
       </Products>
       <Box sx={{ mt: 4 }}>
         {cart ? (
+          <Box sx={{display: 'flex', justifyContent: 'center', gap: 2, flexWrap: 'wrap'}}>
           <Typography sx={{ fontSize: "1.6rem", fontWeight: "bold" }}>
             Subtotal (
             {cart.reduce((accumulator, item) => accumulator + item.quantity, 0)}{" "}
@@ -50,6 +52,10 @@ function Cart() {
               )
               .toFixed(2)}
           </Typography>
+          <Button variant='contained' sx={{ fontSize: '1.2rem'}}>
+            Purchase now
+          </Button>
+          </Box>
         ) : (
           ""
         )}
