@@ -13,7 +13,7 @@ function LogoutBtn() {
   } 
 
   return (
-    <div className="positioning">
+    <div className="positioning-logout">
       <span className="username-welcome"> Welcome, {currentUser.name}</span>
       <button onClick={handleLogout} className="logout-button">
         Logout
