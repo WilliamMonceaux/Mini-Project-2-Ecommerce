@@ -32,9 +32,11 @@ export default function SignUpForm() {
   const [passwordError, setPasswordError] = React.useState(false);
   const [passwordErrorMessage, setPasswordErrorMessage] = React.useState("");
   const [emailError, setEmailError] = React.useState(false);
-  const [emailErrorMessage, setEmailErrorMessage] = React.useState(false);
+  const [emailErrorMessage, setEmailErrorMessage] = React.useState("");
   const [nameError, setNameError] = React.useState(false);
   const [nameErrorMessage, setNameErrorMessage] = React.useState("");
+  const [addressError, setAddressError] = React.useState(false);
+  const [addressErrorMessage, setAddressErrorMessage] = React.useState("");
 
   const { handleUpdateUser } = useUserContext();
 
@@ -67,19 +69,28 @@ export default function SignUpForm() {
       setNameError(false);
       setNameErrorMessage("");
     }
+
+      if (!address.value || address.value.length < 1) {
+      setAddressError(true);
+      setAddressErrorMessage("Address is required.");
+      isValid = false;
+    } else {
+      setAddressError(false);
+      setAddressErrorMessage("");
+    }
     return isValid;
   };
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
     if (nameError || passwordError) return;
     const data = new FormData(event.currentTarget);
     const userName = data.get("name");
-    handleUpdateUser({ name: userName });
-    console.log({
-      name: data.get("name"),
-      password: data.get("password"),
-    });
+    const password = data.get("password");
+    const email = data.get("email")
+    const address = data.get("shipping-address")
+    handleUpdateUser({ name: userName, password: password, email: email, address: address });
   };
 
   return (
@@ -145,6 +156,28 @@ export default function SignUpForm() {
                 placeholder="JonSnow@gmail.com"
                 error={emailError}
                 helperText={emailErrorMessage}
+                sx={{
+                  "& .MuiInputBase-input": {
+                    fontSize: "1.3rem",
+                    padding: "10px",
+                  },
+                  "& .MuiFormHelperText-root": {
+                    fontSize: "1.1rem",
+                  },
+                }}
+              />
+            </FormControl>
+            <FormControl>
+              <FormLabel htmlFor="shipping-address" sx={{fontSize: '1.2rem;'}}> Shipping Address </FormLabel>
+              <TextField
+                id="shipping-address"
+                name="shipping-address"
+                required
+                fullWidth
+                size="small"
+                placeholder="123 address rd"
+                error={addressError}
+                helperText={addressErrorMessage}
                 sx={{
                   "& .MuiInputBase-input": {
                     fontSize: "1.3rem",
