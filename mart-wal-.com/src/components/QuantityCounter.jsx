@@ -1,10 +1,22 @@
+import { useCartContext } from "../Context/CartContext";
 
-function QuantityCounter() {
+function QuantityCounter({ item }) {
+  const { updateQuantity } = useCartContext();
   return (
-    <div className="quantity-display-flex">
-      <button className="quantity-btn">-</button>
-      <p className='quantity-amount'>2</p>
-      <button className="quantity-btn">+</button>
+    <div className="quantity-counter-body">
+      <button
+        className="quantity-btn"
+        onClick={() => updateQuantity(item.id, -1)}
+      >
+        -
+      </button>
+      <p className="quantity-amount">{item.quantity}</p>
+      <button
+        className="quantity-btn"
+        onClick={() => updateQuantity(item.id, 1)}
+      >
+        +
+      </button>
     </div>
   );
 }
