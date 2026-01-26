@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Box, Typography, Button } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { Products } from "../components/Products.jsx";
 import { CartContext } from "../Context/CartContext.jsx";
 import { RemoveItemBtn } from "../components/RemoveItemBtn.jsx";
@@ -52,9 +52,7 @@ function Cart() {
               )
               .toFixed(2)}
           </Typography>
-          <Button variant='contained' sx={{ fontSize: '1.2rem'}}>
-            Purchase now
-          </Button>
+          <PurchaseBtn />
           </Box>
         ) : (
           ""
