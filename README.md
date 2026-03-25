@@ -22,9 +22,6 @@ https://github.com/mui/material-ui/tree/v7.3.6/docs/data/material/getting-starte
 Fake Store APi
 https://fakestoreapi.com/
 
-Figma design
-https://www.figma.com/design/SoqzabR4aG1nvsTuqe1Ypy/Mini-Project-2?node-id=0-1&p=f&t=vpOwHx3L6JzMB0C5-0
-
 React
 
 Node.js and Express
