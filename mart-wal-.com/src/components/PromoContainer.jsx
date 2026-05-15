@@ -1,10 +1,9 @@
-import "./promo-container.css";
+import "../index.css";
 
 function PromoContainer(props) {
   return (
-    <section className="flex-container">
+    <section>
       <div className="promo-container">
-        <header className="promo-header"></header>
         {props.children}
       </div>
     </section>

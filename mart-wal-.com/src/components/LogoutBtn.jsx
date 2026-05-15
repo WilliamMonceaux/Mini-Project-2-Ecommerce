@@ -1,5 +1,5 @@
-import { useUserContext } from "../../Context/UserContext";
-import "./logout-btn.css";
+import { useUserContext } from "../Context/UserContext";
+import "../index.css";
 
 function LogoutBtn() {
   const { currentUser, handleUpdateUser } = useUserContext();
@@ -13,7 +13,7 @@ function LogoutBtn() {
   } 
 
   return (
-    <div className="positioning">
+    <div className="positioning-logout">
       <span className="username-welcome"> Welcome, {currentUser.name}</span>
       <button onClick={handleLogout} className="logout-button">
         Logout

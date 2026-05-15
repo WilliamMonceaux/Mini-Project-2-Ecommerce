@@ -10,7 +10,7 @@ import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import MuiCard from "@mui/material/Card";
-import { useUserContext } from "../../Context/UserContext";
+import { useUserContext } from "../Context/UserContext";
 import { styled } from "@mui/material/styles";
 
 const Card = styled(MuiCard)(({ theme }) => ({
@@ -28,17 +28,22 @@ const Card = styled(MuiCard)(({ theme }) => ({
   },
 }));
 
-export default function SignUp() {
+export default function SignUpForm() {
   const [passwordError, setPasswordError] = React.useState(false);
   const [passwordErrorMessage, setPasswordErrorMessage] = React.useState("");
+  const [emailError, setEmailError] = React.useState(false);
+  const [emailErrorMessage, setEmailErrorMessage] = React.useState("");
   const [nameError, setNameError] = React.useState(false);
   const [nameErrorMessage, setNameErrorMessage] = React.useState("");
+  const [addressError, setAddressError] = React.useState(false);
+  const [addressErrorMessage, setAddressErrorMessage] = React.useState("");
 
   const { handleUpdateUser } = useUserContext();
 
   const validateInputs = () => {
     const password = document.getElementById("password");
     const name = document.getElementById("name");
+    const email = document.getElementById("email");
     let isValid = true;
 
     if (!password.value || password.value.length < 6) {
@@ -50,6 +55,12 @@ export default function SignUp() {
       setPasswordErrorMessage("");
     }
 
+    if (!email.value || email.value.length < 1) {
+      setEmailError(true);
+      setEmailErrorMessage("Email is required.");
+      isValid = false;
+    }
+
     if (!name.value || name.value.length < 1) {
       setNameError(true);
       setNameErrorMessage("Name is required.");
@@ -58,19 +69,28 @@ export default function SignUp() {
       setNameError(false);
       setNameErrorMessage("");
     }
+
+      if (!address.value || address.value.length < 1) {
+      setAddressError(true);
+      setAddressErrorMessage("Address is required.");
+      isValid = false;
+    } else {
+      setAddressError(false);
+      setAddressErrorMessage("");
+    }
     return isValid;
   };
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
     if (nameError || passwordError) return;
     const data = new FormData(event.currentTarget);
     const userName = data.get("name");
-    handleUpdateUser({ name: userName });
-    console.log({
-      name: data.get("name"),
-      password: data.get("password"),
-    });
+    const password = data.get("password");
+    const email = data.get("email")
+    const address = data.get("shipping-address")
+    handleUpdateUser({ name: userName, password: password, email: email, address: address });
   };
 
   return (
@@ -104,7 +124,7 @@ export default function SignUp() {
             sx={{ display: "flex", flexDirection: "column", gap: 2 }}
           >
             <FormControl>
-              <FormLabel htmlFor="name">Full name</FormLabel>
+              <FormLabel htmlFor="name" sx={{fontSize: '1.2rem;'}}>Username</FormLabel>
               <TextField
                 id="name"
                 name="name"
@@ -126,7 +146,51 @@ export default function SignUp() {
               />
             </FormControl>
             <FormControl>
-              <FormLabel htmlFor="password">Password</FormLabel>
+              <FormLabel htmlFor="email" sx={{fontSize: '1.2rem;'}}>Email</FormLabel>
+              <TextField
+                id="email"
+                name="email"
+                required
+                fullWidth
+                size="small"
+                placeholder="JonSnow@gmail.com"
+                error={emailError}
+                helperText={emailErrorMessage}
+                sx={{
+                  "& .MuiInputBase-input": {
+                    fontSize: "1.3rem",
+                    padding: "10px",
+                  },
+                  "& .MuiFormHelperText-root": {
+                    fontSize: "1.1rem",
+                  },
+                }}
+              />
+            </FormControl>
+            <FormControl>
+              <FormLabel htmlFor="shipping-address" sx={{fontSize: '1.2rem;'}}> Shipping Address </FormLabel>
+              <TextField
+                id="shipping-address"
+                name="shipping-address"
+                required
+                fullWidth
+                size="small"
+                placeholder="123 address rd"
+                error={addressError}
+                helperText={addressErrorMessage}
+                sx={{
+                  "& .MuiInputBase-input": {
+                    fontSize: "1.3rem",
+                    padding: "10px",
+                  },
+                  "& .MuiFormHelperText-root": {
+                    fontSize: "1.1rem",
+                  },
+                }}
+              />
+            </FormControl>
+            <FormControl>
+              <FormLabel htmlFor="password" sx={{ fontSize: '1.2rem'}}>Password</FormLabel>
               <TextField
                 required
                 fullWidth
