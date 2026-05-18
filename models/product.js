@@ -39,3 +39,5 @@ Product.init(
     freezeTableName: true,
   },
 );
+
+module.exports = Product;
