@@ -1,32 +1,72 @@
-# Mini-Project-2
+# Mini-Project-2: Full-Stack E-Commerce Platform
 
-My Mini-Project-2 is an E-Commerce website that offers products based on the API store. It has the ability to create new accounts and offers products to the consumer and allows them to add to cart. The idea is to show off different Concepts I have learned up to this point using React, back-end usage, and the use of React Libraries (namely MUI). 
+An interactive, responsive full-stack E-Commerce application designed to deliver a seamless shopping experience. This project integrates a React-based frontend utilizing Material UI (MUI) components with an Express backend, leveraging external APIs to handle dynamic product data, user authentication, and shopping cart operations.
 
-Requirements gathered:
-- Fetching products from store api
-- Adding promotional products that are clickable and direct to shop page
-- Filter and Sort Button for Shop page
-- Search Bar for Shop page
-- Sign-up Form
-- Creating and saving Username and password
-- Adding to Cart button and a Cart to store all items 
+---
 
-Resources used:
-MUI Library
-https://mui.com/material-ui/getting-started/
+## Tech Stack & Resources
 
-MUI Sign-Up Template
-https://mui.com/material-ui/getting-started/templates/
-https://github.com/mui/material-ui/tree/v7.3.6/docs/data/material/getting-started/templates/sign-up
+### Frontend
+- **React**: Component-based user interface architecture.
+- **Material UI (MUI)**: Production-ready component library used to ensure slick UI/UX, responsive layouts, and robust form structures.
+- **MUI Sign-Up Template**: Used as the foundational baseline for robust, accessible user onboarding forms.
 
-Fake Store APi
-https://fakestoreapi.com/
+### Backend & Data
+- **Express**: Node.js web application framework handling server routing and API configurations.
+- **Fake Store API**: Integrated to simulate real-world e-commerce inventory, fetching diverse product collections dynamically.
 
-Figma design
-https://www.figma.com/design/SoqzabR4aG1nvsTuqe1Ypy/Mini-Project-2?node-id=0-1&p=f&t=vpOwHx3L6JzMB0C5-0
+### Design & Reference
+- **Class Lecture Notes & Resources**: Theoretical frameworks and full-stack patterns applied directly to implementation.
 
-React
+---
 
-Express Back-end and Server
+##  Features Implemented
 
-Notes and Powerpoints from class
+-  **Dynamic Product Fetching**: Live server-side calls fetching products seamlessly from the Store API.
+-  **Clickable Promotional Banners**: Engaging promotional landing items that redirect users straight to targeted categories/shop views.
+-  **Real-Time Search Bar**: Instant, intuitive client-side keyword filtering to find specific products instantly.
+-  **Advanced Filter & Sort**: Responsive controls to sort items by price, rating, or categories for an optimized shopping flow.
+-  **Secure Sign-Up Form**: Fully interactive user registration with localized state persistence to track and save user credentials securely.
+-  **Persistent Shopping Cart**: Fully operational "Add to Cart" ecosystem with a dedicated cart view tracking items, quantities, and real-time total updates.
+
+---
+
+##  Current Work-in-Progress & Roadmap
+
+> **Note on Project Status:** This project is actively being developed and undergoes regular iterations as of 5/18/2026.
+
+### Current & Upcoming Engineering Milestones:
+1. **Database Integration**: Migrating from transient local memory / local storage architectures to a permanent, database schema (e.g., MongoDB / PostgreSQL) to securely handle user records, product catalogues, and persistent order histories.
+2. **Backend Refactoring**: Optimizing Express server architecture by abstracting business logic into dedicated controllers, scaling robust middleware validation rules, and streamlining API routes for enhanced performance and security.
+3. **Advanced Security**: Implementing robust hashing algorithms (e.g., bcrypt) for passwords alongside JSON Web Token (JWT) stateless session handling.
+
+---
+
+## Getting Started & Installation
+
+Follow these steps to configure your local workspace and spin up the development environment.
+
+### Prerequisites
+Make sure you have **Node.js** (v16.x or higher) and **npm** installed on your system.
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/your-username/mini-project-2.git
+cd mini-project-2
+```
+
+### 2. Install Dependencies
+```bash
+npm install
+```
+
+### 3. Launch the React Localhost
+```bash 
+npm run dev
+```
+
+### 4. Fetch Products
+```bash
+npm run start
+```
+
