@@ -1,21 +1,31 @@
-const BASE_URL = 'http://fakestoreapi.com/products';
+"use strict";
+const { Product } = require("../models");
 
-const productList = async (req, res) => {
-    try {
-        const response = await fetch(BASE_URL);
+/**
+ 
+@description Fetches all products from catalog
+@route GET /api/products*/
 
-        if (!response.ok) {
-            return res.status(response.status).json({error: "Couldn't fetch product data"});
-        }
+async function getProductCatalog(req, res) {
+  try {
+    const products = await Product.findAll({});
 
-        const productData = await response.json();
+    console.log("Received full product catalog.");
 
-        res.status(200).json(productData);
-        
-    } catch (error) {
-        console.error(`Error! Couldn't fetch fetch product data. Error: ${error.message}`);
-        res.status(500).json({error: 'Failed to fetch products'});
-    }
+    return res
+      .status(200)
+      .json({ success: true, count: products.length, data: products });
+  } catch (err) {
+    console.error("Error: Couldn't fetch catalog.", err.message);
+
+    return res.status(500).json({
+      success: true,
+      message: "Server error occurred while retrieving the product catalog.",
+      error: err.message,
+    });
+  }
 }
 
-module.exports = { productList }
+module.exports = {
+  getProductCatalog,
+};
