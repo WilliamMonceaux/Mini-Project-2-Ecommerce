@@ -2,9 +2,9 @@
 const { Product } = require("../models");
 
 /**
- 
-@description Fetches all products from catalog
-@route GET /api/products*/
+ * @description Fetches all products from catalog
+ * @route GET /api/store/products
+ */
 
 async function getProductCatalog(req, res) {
   try {
