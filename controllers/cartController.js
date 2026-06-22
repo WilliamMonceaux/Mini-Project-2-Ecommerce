@@ -29,7 +29,20 @@ async function getCartItems(req, res) {
 
 async function addItemToCart(req, res) {
   try {
-   const newProductInCart = await Cart.create(req.body);
+    const { userId, productId, quantity } = req.body
+
+    const product = await Product.findByPk(productId);
+
+    if (!product) {
+      return res.status(404).json({ success: false, error: "Product not found" });
+    }
+
+   const newProductInCart = await Cart.create({
+    userId, 
+    productId,
+    unitPrice: product.price,
+    quantity: quantity || 1
+   });
 
    return res
    .status(201)
