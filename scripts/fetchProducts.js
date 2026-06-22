@@ -10,7 +10,7 @@ async function getProducts() {
     const products = response.data;
 
     console.log(
-      `Found ${products.length} amount of products. Formatting data...`,
+      `Found ${products.length} products. Formatting data...`,
     );
 
     // Only importing properties being used for fake store products into database
