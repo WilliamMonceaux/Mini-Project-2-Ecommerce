@@ -19,6 +19,8 @@ const connectMySql = async () => {
     console.log(
       `Successful connection to MySQL Database ${process.env.DB_NAME}`,
     );
+    await sequelize.sync({ alter: true });
+    console.log("Database synchronized successfully!");
   } catch (err) {
     console.log("Unable to connect to MySQL database:", err);
     process.exit(1);
