@@ -34,7 +34,26 @@ async function createUser(req, res) {
   }
 }
 
+/**
+ * @description Delete a user from DB
+ * @route DELETE api/user/:id
+ */
+
+async function deleteUser(req, res) {
+  const id = req.params.id;
+
+  try {
+    const deletedUser = await User.destroy({ where: { id: id } });
+
+    res.status(200).json({ success: true, data: deletedUser });
+  } catch (err) {
+    console.error("Could not delete user", err.message);
+    res.status(500).json({ success: false, error: err.message });
+  }
+}
+
 module.exports = {
   createUser,
   getUsers,
+  deleteUser,
 };
