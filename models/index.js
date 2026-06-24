@@ -16,16 +16,6 @@ OrderItem.belongsTo(Order, { foreignKey: "orderId" });
 Product.hasMany(OrderItem, { foreignKey: "productId" });
 OrderItem.belongsTo(Product, { foreignKey: "productId" });
 
-async function init() {
-  await User.sync();
-  await Product.sync();
-  await Order.sync();
-  await Cart.sync();
-  await OrderItem.sync();
-}
-
-init();
-
 module.exports = {
   User,
   Product,
