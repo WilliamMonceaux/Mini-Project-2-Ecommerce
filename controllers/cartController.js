@@ -59,10 +59,10 @@ async function addItemToCart(req, res) {
 
 async function updateQuantity(req, res) {
   const id = req.params.id;
-  const updateProduct = req.body;
+  const { quantity } = req.body;
 
   try {
-    const [updatedCount] = await Cart.update(updateProduct, {
+    const [updatedCount] = await Cart.update({ quantity }, {
       where: { id: id },
     });
 
@@ -81,8 +81,30 @@ async function updateQuantity(req, res) {
   }
 }
 
+/**
+ * @description Delete product from cart
+ * @route Delete api/cart:id
+ */
+
+async function deleteProduct(req, res) {
+  try {
+   const id = req.params.id;
+
+  const deletedCount = await Cart.destroy({ where: { id: id }});
+
+  if (deletedCount === 0) {
+    return res.status(404).json({ success: false, message: 'Cart item not found'});
+  }
+
+  res.status(200).json({ success: true, message: 'Product removed from cart'}); 
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message});
+  }
+};
+
 module.exports = {
   getCartItems,
   addItemToCart,
   updateQuantity,
+  deleteProduct
 };
