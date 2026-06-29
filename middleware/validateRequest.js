@@ -1,4 +1,4 @@
-import * as z from "zod";
+const z = require('zod');
 
 const validateRequest = (schema) => {
   return (req, res, next) => {
