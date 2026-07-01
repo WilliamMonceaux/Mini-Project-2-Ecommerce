@@ -7,7 +7,7 @@ const { Order, User, Cart, Product, OrderItem, sequelize, } = require("../models
  */
 
 async function checkout(req, res) {
-  const userId = req.user.id;
+  const userId = 1;
 
   const transaction = await sequelize.transaction();
 
@@ -30,7 +30,7 @@ async function checkout(req, res) {
     const order = await Order.create({
       userId,
       totalAmount,
-      status,
+      status: "pending"
     }, { transaction });
 
     for (const item of cartItems) {
@@ -53,6 +53,23 @@ async function checkout(req, res) {
   }
 };
 
+/**
+ * @description View all orders in DB
+ * @route GET api/orders
+ */
+
+async function getUserOrders(req, res) {
+  try {
+    const userOrders = await Order.findAll({});
+
+    res.status(200).json({ success: true, data: userOrders });
+  } catch (err) {
+    console.error("Could not fetch User Orders.", err.message);
+    res.status(500).json({ success: false, error: err.message});
+  }
+}
+
 module.exports = {
   checkout,
+  getUserOrders
 };
