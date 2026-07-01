@@ -2,7 +2,8 @@ const express = require("express");
 const productRoutes = require("./routes/productRoute");
 const cartRoutes = require("./routes/cartRoute");
 const userRoutes = require("./routes/userRoute");
-const orderRoutes = require("./routes/orderItemRoute");
+const orderItemRoutes = require("./routes/orderItemRoute");
+const orderRoutes = require("./routes/orderRoute");
 
 const app = express();
 
@@ -18,6 +19,8 @@ app.use("/api/shop", productRoutes);
 
 app.use("/api/users", userRoutes);
 
-app.use("/api/orderItems", orderRoutes);
+app.use("/api/orderItems", orderItemRoutes);
+
+app.use("/api/orders", orderRoutes);
 
 module.exports = { app };
