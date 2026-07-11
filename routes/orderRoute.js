@@ -3,11 +3,12 @@ const router = express.Router();
 const {
   createOrder,
   getUserOrders,
+  getAllOrders,
 } = require("../controllers/orderController");
 
-router.get("/", getUserOrders);
+router.get("/", getAllOrders);
 
-router.post("/checkout", checkout);
+router.post("/checkout", createOrder);
 
 router.get("/:id", getUserOrders);
 
