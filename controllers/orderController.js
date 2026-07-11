@@ -1,5 +1,5 @@
 "use client";
-const { Order, User } = require("../models");
+const { Order, User, OrderItem } = require("../models");
 
 /**
  * @description Create Order
@@ -8,12 +8,10 @@ const { Order, User } = require("../models");
 
 async function createOrder(req, res) {
   const { userId } = req.body;
-  const user = await User.findByPk(userId);
+  console.log("Request Body:", req.body); // Add this!
   try {
     const order = await Order.create({
-      userId: user,
-      totalAmount,
-      status,
+      userId: userId,
     });
 
     res.status(201).json({ success: true, data: order });
@@ -23,6 +21,26 @@ async function createOrder(req, res) {
   }
 }
 
+/**
+ * @description fetch Orders created by User
+ * @route api/orders/:id
+ */
+
+async function getUserOrders(req, res) {
+  try {
+    const userOrders = await Order.findAll({
+      where: { userId: req.params.id },
+      include: [OrderItem],
+    });
+
+    res.status(200).json({ success: true, data: userOrders });
+  } catch (err) {
+    console.error("Could not fetch orders for user", err.message);
+    res.status(500).json({ success: false, error: err.message });
+  }
+}
+
 module.exports = {
   createOrder,
+  getUserOrders,
 };
