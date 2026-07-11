@@ -1,5 +1,6 @@
 "use client";
-const { Order, User, OrderItem } = require("../models");
+const { Order, User, OrderItem, Cart, Product } = require("../models");
+const { sequelize } = require("../config/dbConnect");
 
 /**
  * @description Create checkout
@@ -8,10 +9,14 @@ const { Order, User, OrderItem } = require("../models");
 
 async function createOrder(req, res) {
   const { userId } = req.body;
-  console.log("Request Body:", req.body); // Add this!
+  const transaction = await sequelize.transaction();
+  console.log("Transaction object:", transaction);
+
   try {
-    const order = await Order.create({
-      userId: userId,
+    const cartItems = await Cart.findAll({
+      where: { userId },
+      include: [Product],
+      transaction,
     });
 
     if (!cartItems.length) {
@@ -50,7 +55,7 @@ async function createOrder(req, res) {
 
     res.status(201).json({ success: true, data: order });
   } catch (err) {
-    console.error("CCheckout failed:", err.message);
+    console.error("Checkout failed:", err.message);
     res.status(500).json({ success: false, error: "Order processing failed" });
   }
 }
@@ -60,7 +65,7 @@ async function createOrder(req, res) {
  * @route GET api/orders
  */
 
-async function getUserOrders(req, res) {
+async function getAllOrders(req, res) {
   try {
     const userOrders = await Order.findAll({});
 
@@ -92,5 +97,6 @@ async function getUserOrders(req, res) {
 
 module.exports = {
   createOrder,
+  getAllOrders,
   getUserOrders,
 };
