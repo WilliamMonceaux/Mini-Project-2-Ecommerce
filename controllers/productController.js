@@ -26,6 +26,27 @@ async function getProductCatalog(req, res) {
   }
 }
 
+async function getProductById(req, res) {
+  try {
+    const product = await Product.findByPk(req.params.id);
+
+    if (!product) {
+      return res
+        .status(404)
+        .json({ success: false, error: "Product not found" });
+    }
+
+    return res.status(200).json({ success: true, data: product });
+  } catch (err) {
+    console.error(
+      `Error: Could not find product by id: ${product}`,
+      err.message,
+    );
+    res.status(500).json({ success: false, error: err.message });
+  }
+}
+
 module.exports = {
   getProductCatalog,
+  getProductById
 };
