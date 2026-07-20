@@ -1,18 +1,20 @@
 const express = require("express");
 const router = express.Router();
 const {
-  createUser,
   getUsers,
   deleteUser,
   editUser,
 } = require("../controllers/userController");
-const { validateRequest } = require('../middleware/validateRequest');
-const { userSchema, partialUserSchema } = require('../schemas/userSchema');
-
+const { signup } = require("../controllers/signupController");
+const { login } = require("../controllers/loginController");
+const { validateRequest } = require("../middleware/validateRequest");
+const { userSchema, partialUserSchema } = require("../schemas/userSchema");
 
 router.get("/", getUsers);
 
-router.post("/add", createUser);
+router.post("/signup", signup);
+
+router.post("/login", login);
 
 router.patch("/:id", validateRequest(partialUserSchema), editUser);
 
