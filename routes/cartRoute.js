@@ -6,13 +6,14 @@ const {
   updateQuantity,
   deleteProduct
 } = require("../controllers/cartController");
+const { authenticateToken } = require('../middleware/authToken');
 
-router.get("/", getCartItems);
+router.get("/", authenticateToken, getCartItems);
 
-router.post("/add", addItemToCart);
+router.post("/add", authenticateToken, addItemToCart);
 
-router.patch("/:id", updateQuantity);
+router.patch("/:id", authenticateToken, updateQuantity);
 
-router.delete("/:id", deleteProduct);
+router.delete("/:id", authenticateToken, deleteProduct);
 
 module.exports = router;

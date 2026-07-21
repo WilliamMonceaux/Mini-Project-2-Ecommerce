@@ -5,11 +5,12 @@ const {
   getUserOrders,
   getAllOrders,
 } = require("../controllers/orderController");
+const { authenticateToken } = require('../middleware/authToken');
 
-router.get("/", getAllOrders);
+router.get("/", authenticateToken, getAllOrders);
 
-router.post("/checkout", createOrder);
+router.post("/checkout", authenticateToken, createOrder);
 
-router.get("/:id", getUserOrders);
+router.get("/:id", authenticateToken, getUserOrders);
 
 module.exports = router;
