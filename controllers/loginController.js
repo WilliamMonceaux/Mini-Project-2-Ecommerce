@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+const env = require("dotenv");
 const { User } = require("../models");
 
 /**
@@ -20,14 +21,21 @@ const { User } = require("../models");
 
 async function login(req, res) {
   try {
-    const { email, password } = req.body;
+    const { id, email, password } = req.body;
     const user = await User.findOne({ where: { email } });
     if (!user) return res.status(401).json({ error: "User not found" });
 
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) return res.status(401).json({ error: "Invalid password" });
+    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET_KEY);
 
-    return res.status(200).json({ success: true, data: user });
+    return res
+      .status(200)
+      .json({
+        success: true,
+        token: token,
+        data: { id: user.id, name: user.name, email: user.email },
+      });
   } catch (err) {
     console.error("Could not login properly", err.message);
     res.status(500).json({ success: false, err: err.message });
