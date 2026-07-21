@@ -4,6 +4,7 @@ const Product = require("./product");
 const Order = require("./order");
 const Cart = require("./cart");
 const OrderItem = require("./orderItem");
+const RefreshToken = require('./refreshToken');
 
 User.hasMany(Order, { foreignKey: "userId" });
 Order.belongsTo(User, { foreignKey: "userId" });
@@ -15,6 +16,7 @@ Order.hasMany(OrderItem, { foreignKey: "orderId", onDelete: "CASCADE" });
 OrderItem.belongsTo(Order, { foreignKey: "orderId" });
 Product.hasMany(OrderItem, { foreignKey: "productId" });
 OrderItem.belongsTo(Product, { foreignKey: "productId" });
+RefreshToken.belongsTo(User, { foreignKey: "userId"});
 
 module.exports = {
   User,
@@ -22,4 +24,5 @@ module.exports = {
   Order,
   Cart,
   OrderItem,
+  RefreshToken,
 };
